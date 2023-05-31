@@ -1,8 +1,8 @@
-;;; llama-cpp-mode.el -- Run a GGML model via llama.cpp in a comint process.
+;;; llama-cpp-comint.el -- Run a GGML model via llama.cpp in a comint process.
 
 ;;; Commentary:
 
-;; llama-cpp-mode.el is a comint mode for Emacs that allows you to use
+;; llama-cpp-comint.el is a comint mode for Emacs that allows you to use
 ;; llama.cpp and the assosciated GGML models as an inferior process that
 ;; you can interact with.  Currently is very spartan in its configuration,
 ;; but is sufficient for most uses, and will be improved in the future.
