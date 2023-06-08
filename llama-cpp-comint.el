@@ -63,12 +63,11 @@
   "Run a query on the currently selected region."
   (interactive)
   (let ((buff
-         (concat
-          (concat (completing-read "Enter a Query: " llama-cpp-queries)
-                  "\n\n"
-                  (buffer-substring-no-properties (region-beginning)
-                                                  (region-end))
-                  "\\\n"))))
+         (concat (completing-read "Enter a Query: " llama-cpp-queries)
+                 "\n\n"
+                 (buffer-substring-no-properties (region-beginning)
+                                                 (region-end))
+                 "\\\n")))
     ;; Start up llama-cpp comint buffer if not already running.
     (unless (llama-cpp-running-p)
       (run-llama-cpp))
@@ -91,9 +90,8 @@
          (llama-cpp-program    (car model-info))
          (llama-cpp-model-path (car (cdr model-info)))
 
-         (alive                (comint-check-proc llama-cpp-buffer-name))
          (args                 (split-string-shell-command (llama-cpp-get-args llama-cpp-model-path))))
-    (unless alive
+    (unless (llama-cpp-running-p)
       (llama-cpp-make-comint-buff llama-cpp-program args))
     (display-buffer llama-cpp-buffer-name)))
 
